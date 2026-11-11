@@ -1,0 +1,105 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      {{ with .Params.kicker }}<p class="kicker">{{ . }}</p>{{ end }}
+      <h1>{{ .Params.headline | default .Title }}</h1>
+      {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+      {{ with .Params.intro }}<p>{{ . }}</p>{{ end }}
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ (.Site.GetPage "kontakt").RelPermalink }}">{{ i18n "enquire" }}</a>
+        <a class="btn btn-ghost" href="{{ (.Site.GetPage "faecher").RelPermalink }}">{{ i18n "subjects" }}</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <picture>
+        <source type="image/webp" srcset="{{ "img/vladyslav-petrenko.webp" | relURL }}">
+        <img src="{{ "img/vladyslav-petrenko.jpg" | relURL }}" width="900" height="1475" alt="{{ i18n "photo_alt" }}">
+      </picture>
+      <figcaption>Vladyslav Petrenko</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap meta-row">
+    <div class="panel">
+      <h2>{{ i18n "languages_label" }}</h2>
+      <ul class="chips">
+        {{ range .Params.languages }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      <p style="margin:0;color:var(--ink-soft);">{{ i18n "languages_note" }}</p>
+    </div>
+    <div class="panel">
+      <h2>{{ i18n "hours_label" }}</h2>
+      <p style="margin:.35rem 0 .4rem;font-size:1.2rem;font-family:var(--font-serif);color:var(--ink);"><strong>{{ .Site.Params.hours }}</strong> <span style="font-size:1rem;color:var(--ink-soft);">({{ .Site.Params.timezone }})</span></p>
+      <p style="margin:0;color:var(--ink-soft);">{{ i18n "hours_note" }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>{{ .Params.subjectsTitle }}</h2>
+    <p class="section-intro">{{ .Params.subjectsIntro }}</p>
+    <div class="card-grid">
+      {{ range .Params.subjects }}
+      <a class="card" href="{{ ($.Site.GetPage "faecher").RelPermalink }}#{{ .id }}">
+        {{ with .tag }}<span class="tag">{{ . }}</span>{{ end }}
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>{{ .Params.stepsTitle }}</h2>
+    <p class="section-intro">{{ .Params.stepsIntro }}</p>
+    <div class="steps">
+      {{ range .Params.steps }}
+      <div class="step">
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </div>
+      {{ end }}
+    </div>
+    <p style="margin:1.1rem 0 0;"><a href="{{ (.Site.GetPage "ablauf").RelPermalink }}">{{ .Params.stepsLink }}</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <picture>
+      <source type="image/webp" srcset="{{ "img/vladyslav-petrenko-square.webp" | relURL }}">
+      <img src="{{ "img/vladyslav-petrenko-square.jpg" | relURL }}" width="800" height="800" alt="{{ i18n "photo_alt" }}">
+    </picture>
+    <div>
+      <h2>{{ .Params.aboutTitle }}</h2>
+      {{ range .Params.aboutParagraphs }}
+      <p>{{ . }}</p>
+      {{ end }}
+      <p><a href="{{ (.Site.GetPage "ueber-mich").RelPermalink }}">{{ .Params.aboutLink }}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>{{ .Params.ctaTitle }}</h2>
+        <p>{{ .Params.ctaText }}</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:{{ .Site.Params.email }}?subject={{ i18n "mail_subject" | urlquery }}">{{ i18n "enquire" }}</a>
+        <a class="btn btn-ghost" href="{{ (.Site.GetPage "kontakt").RelPermalink }}">{{ if eq .Site.Language.Lang "en" }}Contact details{{ else }}Zu den Kontaktdaten{{ end }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

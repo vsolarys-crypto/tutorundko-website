@@ -1,0 +1,22 @@
+{{ define "main" }}
+<header class="wrap page-hero">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+</header>
+<div class="wrap prose">
+  {{ .Content }}
+</div>
+{{ if .Pages }}
+<ul class="wrap post-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li>
+    {{ if eq .Params.reviewStatus "entwurf" }}<span class="tag">{{ if eq $.Site.Language.Lang "en" }}Draft{{ else }}Entwurf{{ end }}</span>{{ end }}
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta">{{ .Date.Format "2 January 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}</p>
+    <p>{{ .Params.summary | default .Summary }}</p>
+    <p><a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a></p>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

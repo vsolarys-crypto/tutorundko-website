@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="wrap page-hero">
+  <h1>{{ if eq .Site.Language.Lang "en" }}Page not found{{ else }}Seite nicht gefunden{{ end }}</h1>
+  <p class="lead">{{ if eq .Site.Language.Lang "en" }}This address is not on the site. Please go back to the home page.{{ else }}Diese Adresse gibt es auf der Website nicht. Bitte zurück zur Startseite.{{ end }}</p>
+  <p><a class="btn btn-primary" href="{{ .Site.Home.RelPermalink }}">{{ i18n "home" }}</a></p>
+</article>
+{{ end }}

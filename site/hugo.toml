@@ -1,0 +1,132 @@
+# Tutor & Ko – website source for tutorundko.de
+
+baseURL = "https://tutorundko.de/"
+title = "Tutor & Ko – Nachhilfe mit Vladyslav"
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = false  # static robots.txt in site/static/robots.txt
+enableGitInfo = false
+summaryLength = 40
+disableKinds = ["taxonomy"]
+[pagination]
+  pagerSize = 10
+relativeURLs = false
+canonifyURLs = false
+publishDir = "../public"
+
+[params]
+  author = "Vladyslav Petrenko"
+  brand = "Tutor & Ko"
+  brandTagline = "Nachhilfe mit Vladyslav"
+  email = "petrenkovladyslav94@gmail.com"
+  apprentus = "https://www.apprentus.com/in/vladyslav.pe"
+  linkedin = "https://www.linkedin.com/in/vladyslav-petrenko-339b65184/"
+  facebook = "https://www.facebook.com/VlaDD.P"
+  instagram = "https://www.instagram.com/synapse_ai_solutions/"
+  hours = "18:00–21:00"
+  timezone = "Europe/Berlin"
+  preview = false
+  noIndex = false
+  description = "Nachhilfe in Mathe, Chemie, Physik, Biologie und Wirtschaft mit Vladyslav Petrenko. Unterricht auf Deutsch, Englisch, Französisch, Luxemburgisch oder Russisch – überwiegend online."
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+  title = true
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.jpeg]
+    quality = 85
+  [imaging.webp]
+    quality = 82
+
+[languages.de]
+  label = "Deutsch"
+  locale = "de-DE"
+  weight = 1
+  title = "Tutor & Ko – Nachhilfe mit Vladyslav"
+  [languages.de.params]
+    description = "Nachhilfe in Mathe, Chemie, Physik, Biologie und Wirtschaft mit Vladyslav Petrenko. Unterricht auf Deutsch, Englisch, Französisch, Luxemburgisch oder Russisch – überwiegend online."
+    brandTagline = "Nachhilfe mit Vladyslav"
+
+[languages.en]
+  label = "English"
+  locale = "en-GB"
+  weight = 2
+  title = "Tutor & Ko – Tutoring with Vladyslav"
+  [languages.en.params]
+    description = "Tutoring in maths, chemistry, physics, biology and economics with Vladyslav Petrenko. Lessons in German, English, French, Luxembourgish or Russian — mostly online."
+    brandTagline = "Tutoring with Vladyslav"
+
+# German menus
+[[languages.de.menus.main]]
+  name = "Start"
+  pageRef = "/"
+  weight = 1
+[[languages.de.menus.main]]
+  name = "Über mich"
+  pageRef = "/ueber-mich"
+  weight = 2
+[[languages.de.menus.main]]
+  name = "Fächer"
+  pageRef = "/faecher"
+  weight = 3
+[[languages.de.menus.main]]
+  name = "Ablauf"
+  pageRef = "/ablauf"
+  weight = 4
+[[languages.de.menus.main]]
+  name = "Kontakt"
+  pageRef = "/kontakt"
+  weight = 6
+
+[[languages.de.menus.footer]]
+  name = "Impressum"
+  pageRef = "/impressum"
+  weight = 1
+[[languages.de.menus.footer]]
+  name = "Datenschutz"
+  pageRef = "/datenschutz"
+  weight = 2
+[[languages.de.menus.footer]]
+  name = "Kontakt"
+  pageRef = "/kontakt"
+  weight = 3
+
+# English menus
+[[languages.en.menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+[[languages.en.menus.main]]
+  name = "About"
+  pageRef = "/ueber-mich"
+  weight = 2
+[[languages.en.menus.main]]
+  name = "Subjects"
+  pageRef = "/faecher"
+  weight = 3
+[[languages.en.menus.main]]
+  name = "Lessons"
+  pageRef = "/ablauf"
+  weight = 4
+[[languages.en.menus.main]]
+  name = "Contact"
+  pageRef = "/kontakt"
+  weight = 6
+
+[[languages.en.menus.footer]]
+  name = "Legal notice"
+  pageRef = "/impressum"
+  weight = 1
+[[languages.en.menus.footer]]
+  name = "Privacy"
+  pageRef = "/datenschutz"
+  weight = 2
+[[languages.en.menus.footer]]
+  name = "Contact"
+  pageRef = "/kontakt"
+  weight = 3

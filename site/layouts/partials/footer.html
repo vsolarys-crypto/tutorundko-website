@@ -1,0 +1,33 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="logo-mark" style="margin:0 0 .4rem;">{{ .Site.Params.brand }}</p>
+      <p style="margin:0; max-width:26rem;">{{ .Site.Params.brandTagline }}.
+      {{ if eq .Site.Language.Lang "en" }}
+        Maths, chemistry, physics, biology and economics — mostly online, with occasional in-person lessons in Luxembourg or the Trier–Eifel area.
+      {{ else }}
+        Mathe, Chemie, Physik, Biologie und Wirtschaft — überwiegend online, gelegentlich vor Ort in Luxemburg oder im Raum Trier–Eifel.
+      {{ end }}
+      </p>
+    </div>
+    <div>
+      <h2>{{ i18n "footer_legal" }}</h2>
+      <ul>
+        {{ range .Site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    <div>
+      <h2>{{ i18n "footer_social" }}</h2>
+      {{ partial "social.html" . }}
+      <p style="margin:.8rem 0 0;">
+        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p style="margin:0;">© {{ now.Year }} {{ i18n "copyright" }}</p>
+    <p style="margin:0;">{{ if eq .Site.Language.Lang "en" }}tutorundko.de{{ else }}tutorundko.de{{ end }}</p>
+  </div>
+</footer>

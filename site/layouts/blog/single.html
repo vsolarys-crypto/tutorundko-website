@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="wrap">
+  <header class="article-head">
+    <p class="kicker"><a href="{{ .Parent.RelPermalink }}">{{ i18n "back_to_blog" }}</a></p>
+    <h1>{{ .Title }}</h1>
+    <p class="meta">{{ .Date.Format "2 January 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}{{ with .Params.category }} · {{ . }}{{ end }}</p>
+  </header>
+  {{ if eq .Params.reviewStatus "entwurf" }}
+  <div class="wrap" style="max-width:var(--measure);padding:0;">
+    <p class="draft-note">{{ i18n "draft_banner" }}</p>
+  </div>
+  {{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

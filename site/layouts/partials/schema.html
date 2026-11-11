@@ -1,0 +1,16 @@
+<script type="application/ld+json">
+{{
+  dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" "Vladyslav Petrenko"
+    "jobTitle" (cond (eq .Site.Language.Lang "en") "Tutor" "Nachhilfelehrer")
+    "url" .Site.Home.Permalink
+    "image" ("img/vladyslav-petrenko-square.jpg" | absURL)
+    "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "University of Aberdeen")
+    "knowsLanguage" (slice "de" "en" "fr" "lb" "ru")
+    "sameAs" (slice .Site.Params.linkedin .Site.Params.facebook .Site.Params.instagram)
+    "email" (printf "mailto:%s" .Site.Params.email)
+  | jsonify | safeJS
+}}
+</script>

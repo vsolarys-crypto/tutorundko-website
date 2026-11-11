@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="wrap">
+  <header class="article-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  {{ if eq .Params.reviewStatus "entwurf" }}
+  <div class="wrap" style="max-width:var(--measure);padding:0;">
+    <p class="draft-note">{{ i18n "draft_banner" }}</p>
+  </div>
+  {{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,6 @@
+public/
+site/resources/_gen/
+site/.hugo_build.lock
+.hugo_build.lock
+*.pdf
+.DS_Store
